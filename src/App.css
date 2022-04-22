@@ -1,38 +1,97 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 5vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.content {
+    display: flex;
+}
+
+.panel-inner {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.search-row {
+    margin: 1em;
+}
+
+.search-row:after {
+    content: "";
+    display: flex;
+    clear: both;
+}
+
+.row-content {
+    display: flex;
+    align-self: flex-start;
+}
+
+.remove-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+
+}
+
+button {
+    background-color: #a19d81;
+    padding: 0.35em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    transition: all 0.2s;
+    border-style: solid;
+    border-radius: 1em;
+}
+
+button:hover {
+    background-color: beige;
+}
+
+.row {
+    width: 10vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    border: #908524 1px solid;
+    padding: 0.0005em 0.005em 0.00005em 0.75em;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
+}
+
+.panel {
+    flex: 50%;
+    flex-flow: column;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
