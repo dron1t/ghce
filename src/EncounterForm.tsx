@@ -13,6 +13,8 @@ interface EncounterState {
 
 export default class EncounterForm extends React.Component<EncounterFormProps, EncounterState> {
 
+    daysToExpirePart: string = ";" + new Date(2147483647 * 1000).toUTCString();
+
     constructor(props: EncounterFormProps) {
         super(props);
         let cookies = document.cookie
@@ -23,10 +25,8 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
 
             let searchedEncounter = encountersArr.filter(f => f.indexOf(this.props.type) > -1);
             if (searchedEncounter.length > 0) {
-                console.log("Xsearched encounter" + searchedEncounter[0]);
                 encountersStr = searchedEncounter[0].substring((this.props.type + "=").length);
                 encountersStr = encountersStr.replaceAll("=", "");
-                console.log(this.props.type + "EncFX" + encountersStr)
                 encounters = JSON.parse(encountersStr);
             }
         }
@@ -51,7 +51,7 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
             const encounters = this.state.originalEncounters;
             encounters.push(this.state.inputValue);
             this.setState({encounters: encounters, originalEncounters: encounters})
-            document.cookie = this.props.type + "=" + JSON.stringify(encounters);
+            document.cookie = this.props.type + "=" + JSON.stringify(encounters) + this.daysToExpirePart;
         } else {
             this.setState({encounters: this.state.originalEncounters})
         }
@@ -67,7 +67,7 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
             let encounters = this.state.originalEncounters;
             encounters.splice(index, 1);
             this.setState({encounters: encounters, originalEncounters: encounters});
-            document.cookie = this.props.type + "=" + JSON.stringify(encounters);
+            document.cookie = this.props.type + "=" + JSON.stringify(encounters) + this.daysToExpirePart;
         }
     }
 
