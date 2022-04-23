@@ -50,6 +50,7 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
         if (this.state.inputValue && +this.state.inputValue > 0) {
             const encounters = this.state.originalEncounters;
             encounters.push(this.state.inputValue);
+            encounters.sort();
             this.setState({encounters: encounters, originalEncounters: encounters})
             document.cookie = this.props.type + "=" + JSON.stringify(encounters) + this.daysToExpirePart;
         } else {
