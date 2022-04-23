@@ -1,7 +1,7 @@
 {
   "name": "ghce",
   "version": "0.1.0",
-  "homepage": "https://dron1t.github.io/gloomhaven",
+  "homepage": "https://dron1t.github.io/ghce",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
