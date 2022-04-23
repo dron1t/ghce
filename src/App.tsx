@@ -10,15 +10,15 @@ function App() {
                 GloomHaven Roads, Cities & Items
             </header>
             <div className={"content"}>
-                <div className="panel">
+                <div className="panel city">
                     <h1>Roads</h1>
                     <EncounterForm type={"city"}></EncounterForm>
                 </div>
-                <div className="panel">
+                <div className="panel road">
                     <h1>Cities</h1>
                     <EncounterForm type={"road"}></EncounterForm>
                 </div>
-                <div className="panel">
+                <div className="panel items">
                     <h1>Items</h1>
                     <EncounterForm type={"items"}></EncounterForm>
                 </div>

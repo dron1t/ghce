@@ -79,14 +79,11 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
                     <button type={"button"} onClick={this.search}>Search</button>
                     <button type={"button"} onClick={this.add}>Add</button>
                 </div>
-                <div>
-                    <div className={"row-container"}>
-                        {this.getEncounters().map(s => {
-                            return (<div className="row"> <span className={"row-content"}> {s} </span> <button className={"remove-btn"} type={"button"} onClick={() => this.remove(s)}>-</button> </div>)
-                        })}
-                    </div>
-                </div>
 
+
+                    {this.getEncounters().map(s => {
+                        return (<div className="row"> <span className={"row-content"}> {s} </span> <button className={"remove-btn"} type={"button"} onClick={() => this.remove(s)}>-</button> </div>)
+                    })}
 
             </div>
         );
