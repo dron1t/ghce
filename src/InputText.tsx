@@ -2,6 +2,7 @@ import React from "react";
 
 interface SetInput {
     setInput(arg: string): void;
+    inputName: string;
 }
 
 interface InputTextState {
@@ -16,7 +17,6 @@ export default class InputText extends React.Component<SetInput, InputTextState>
     }
 
     setInputText = (arg: React.FormEvent<HTMLInputElement>) : void => {
-        console.log(arg.currentTarget.value)
         this.props.setInput(arg.currentTarget.value);
         this.setState({textValue: arg.currentTarget.value})
     }
@@ -24,7 +24,7 @@ export default class InputText extends React.Component<SetInput, InputTextState>
     render() {
         return (
             <div className={"search-row"}>
-                <input type={"number"} value={this.state.textValue} name={"encounter"} onChange={this.setInputText} />
+                <input type={"number"} value={this.state.textValue} name={this.props.inputName} onChange={this.setInputText} />
             </div>
         );
     }

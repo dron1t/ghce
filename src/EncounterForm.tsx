@@ -50,7 +50,7 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
         if (this.state.inputValue && +this.state.inputValue > 0) {
             const encounters = this.state.originalEncounters;
             encounters.push(this.state.inputValue);
-            encounters.sort();
+            encounters.sort((a, b) => +a > +b ? 1 : 0);
             this.setState({encounters: encounters, originalEncounters: encounters})
             document.cookie = this.props.type + "=" + JSON.stringify(encounters) + this.daysToExpirePart;
         } else {
@@ -76,9 +76,9 @@ export default class EncounterForm extends React.Component<EncounterFormProps, E
         return (
             <div className={"panel-inner"}>
                 <div className={"panel-actions"}>
-                    <InputText setInput={this.setValue}></InputText>
-                    <button type={"button"} onClick={this.search}>Search</button>
-                    <button type={"button"} onClick={this.add}>Add</button>
+                    <InputText inputName={this.props.type + "-input"} setInput={this.setValue}></InputText>
+                    <button type={"button"} id={"search-"+this.props.type} onClick={this.search}>Search</button>
+                    <button type={"button"} id={"add-"+this.props.type} onClick={this.add}>Add</button>
                 </div>
 
 
